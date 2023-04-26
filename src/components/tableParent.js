@@ -4,7 +4,13 @@ import TodoTable from "./todoTable";
 
 function TableParent(props) {
   const [currentPage, setCurrentPage] = useState(1);
-  // create a row of buttons for every 10 todos and highlight the current button pressed
+
+  const handleComplete = (index) => {
+    let newData = [...props.data];
+    newData[index].completed = true;
+    props.setData(newData);
+  };
+
   const handeClick = (e) => {
     setCurrentPage(e.currentTarget.id);
   };
@@ -18,9 +24,10 @@ function TableParent(props) {
           key={i}
           onClick={handeClick}
           // if the current button is the one pressed, highlight it
-          style={{
-            backgroundColor: currentPage == i ? "yellow" : "white",
-          }}
+
+          className={
+            currentPage == i ? "btn btn-dark" : "btn btn-outline-secondary"
+          }
         >
           {i}
         </button>
@@ -33,7 +40,11 @@ function TableParent(props) {
   return (
     <div>
       <div>{createButtons()}</div>
-      <TodoTable data={props.data} currentPage={currentPage} />
+      <TodoTable
+        data={props.data}
+        currentPage={currentPage}
+        handleComplete={handleComplete}
+      />
     </div>
   );
 }

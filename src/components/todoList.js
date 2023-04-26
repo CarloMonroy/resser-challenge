@@ -22,7 +22,7 @@ function TodoList(props) {
         <button type="submit">Add</button>
         <button onClick={() => window.location.reload()}>Refresh</button>
       </form>
-      <TableParent data={props.data} />
+      <TableParent data={props.data} setData={props.setData} />
     </div>
   );
 }

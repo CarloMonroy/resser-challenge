@@ -12,7 +12,11 @@ function TodoTable(props) {
           <td>{props.data[i].id}</td>
           <td>{props.data[i].userId}</td>
           <td>{props.data[i].title}</td>
-          <td>{props.data[i].completed ? "✔" : "X"}</td>
+          <td>
+            <button onClick={() => props.handleComplete(i)}>
+              {props.data[i].completed ? "✔" : "X"}
+            </button>
+          </td>
         </tr>
       );
     }

@@ -42,7 +42,7 @@ function App() {
             </div>
           ) : (
             <div>
-              <TodoList data={data} />
+              <TodoList data={data} setData={setData} />
             </div>
           )}
         </div>
