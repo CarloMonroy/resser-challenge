@@ -7,7 +7,16 @@ function TodoList(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(todo);
+    let newData = [...props.data];
+    newData.unshift({
+      id: Math.floor(Math.random() * 101),
+      userId: Math.floor(Math.random() * 101),
+      title: todo,
+      completed: false,
+    });
+
+    props.setData(newData);
+    setTodo("");
   };
 
   return (
@@ -18,6 +27,7 @@ function TodoList(props) {
           placeholder="Enter todo"
           value={todo}
           onChange={(e) => setTodo(e.target.value)}
+          autoFocus
         />
         <button type="submit">Add</button>
         <button onClick={() => window.location.reload()}>Refresh</button>

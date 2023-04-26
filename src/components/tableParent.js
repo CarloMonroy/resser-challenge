@@ -26,7 +26,7 @@ function TableParent(props) {
           // if the current button is the one pressed, highlight it
 
           className={
-            currentPage == i ? "btn btn-dark" : "btn btn-outline-secondary"
+            currentPage === i ? "btn btn-dark" : "btn btn-outline-secondary"
           }
         >
           {i}
